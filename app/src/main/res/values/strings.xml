@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RestApp</string>
+
+    <string name="main_menu_button">Main Menu</string>
+    <string name="drinks_button">Drinks</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>
