@@ -4,5 +4,32 @@
     <string name="main_menu_button">Main Menu</string>
     <string name="drinks_button">Drinks</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <
+    <string name="dish_name">Name</string>
+    <string name="dish_size">Size</string>
+    <string name="dish_price">Price</string>
+    <string name="main_dish1_name">Pasta</string>
+    <string name="main_dish1_size">300g</string>
+    <string name="main_dish1_price">120</string>
+    <string name="main_dish2_name">Bolognese</string>
+    <string name="main_dish2_size">250g</string>
+    <string name="main_dish2_price">160</string>
+    <string name="main_dish3_name">Ravioli</string>
+    <string name="main_dish3_size">300g</string>
+    <string name="main_dish3_price">150</string>
+
+    <string-array name="main_dish1">
+        <item>"Pasta"</item>
+        <item>"300g"</item>
+        <item>"120"</item>
+    </string-array>
+    <string-array name="main_dish2">
+        <item>"Bolognese"</item>
+        <item>"250g"</item>
+        <item>"160"</item>
+    </string-array>
+    <string-array name="main_dish3">
+        <item>"Ravioli"</item>
+        <item>"300g"</item>
+        <item>"150"</item>
+    </string-array>
 </resources>
