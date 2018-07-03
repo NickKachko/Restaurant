@@ -32,4 +32,10 @@
         <item name="android:background">#00af0000</item>
     </style>
 
+    <style name="MenuEntryText" parent="android:Widget.TextView">
+        <item name="android:textSize">30sp</item>
+        <item name="android:fontFamily">cursive</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
 </resources>

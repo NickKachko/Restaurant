@@ -1,12 +1,18 @@
 <resources>
     <string name="app_name">RestApp</string>
 
-    <string name="main_menu_button">Main Menu</string>
+    <string name="main_menu_button">Main meals</string>
+    <string name="sushi_button">Sushi</string>
+    <string name="pizza_button">Pizza</string>
+    <string name="dessert_button">Dessert</string>
     <string name="drinks_button">Drinks</string>
+
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
     <string name="dish_name">Name</string>
     <string name="dish_size">Size</string>
     <string name="dish_price">Price</string>
+
     <string name="main_dish1_name">Pasta</string>
     <string name="main_dish1_size">300g</string>
     <string name="main_dish1_price">120</string>

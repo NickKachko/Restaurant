@@ -3,9 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/restaurant_blurred"
     android:id="@+id/main_layout"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/restaurant_blurred"/>
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -43,13 +48,31 @@
             tools:ignore="UselessParent">
 
             <Button
-                android:id="@+id/dummy_button"
+                android:id="@+id/main_menu_button"
                 style="@style/MyButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/main_menu_button"/>
             <Button
-                android:id="@+id/dummy_button2"
+                android:id="@+id/sushi_button"
+                style="@style/MyButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sushi_button"/>
+            <Button
+                android:id="@+id/pizza_button"
+                style="@style/MyButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pizza_button"/>
+            <Button
+                android:id="@+id/dessert_button"
+                style="@style/MyButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dessert_button"/>
+            <Button
+                android:id="@+id/drinks_button"
                 style="@style/MyButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -58,10 +81,14 @@
         </LinearLayout>
 
         <TableLayout
+            android:id="@+id/main_menu_table"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:background="@color/black_overlay"
             android:gravity="center"
+            android:theme="@style/MenuEntryText"
+            android:visibility="invisible"
+            android:paddingLeft="30dp"
             android:layout_weight="3">
             <TableRow>
                 <TextView
@@ -70,7 +97,6 @@
                     android:layout_weight="0.7"
                     android:layout_gravity="left"
                     android:text="@string/dish_name"
-                    style="@style/MyButton"
                     android:textSize="20dp"
                     />
                 <TextView
@@ -78,7 +104,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
                     android:text="@string/dish_size"
-                    style="@style/MyButton"
                     android:textSize="20dp"
                     />
                 <TextView
@@ -86,7 +111,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
                     android:text="@string/dish_price"
-                    style="@style/MyButton"
                     android:textSize="20dp"
                     />
             </TableRow>
@@ -97,7 +121,6 @@
                     android:layout_weight="0.7"
                     android:layout_gravity="left"
                     android:text="@string/main_dish1_name"
-                    style="@style/MyButton"
                     android:textSize="20dp"
                     />
                 <TextView
@@ -105,7 +128,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
                     android:text="@string/main_dish1_size"
-                    style="@style/MyButton"
                     android:textSize="20dp"
                     />
                 <TextView
@@ -113,7 +135,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
                     android:text="@string/main_dish1_price"
-                    style="@style/MyButton"
                     android:textSize="20dp"
                     />
             </TableRow>
@@ -124,7 +145,6 @@
                     android:layout_weight="0.7"
                     android:layout_gravity="left"
                     android:text="@string/main_dish2_name"
-                    style="@style/MyButton"
                     android:textSize="20dp"
                     />
                 <TextView
@@ -132,7 +152,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
                     android:text="@string/main_dish2_size"
-                    style="@style/MyButton"
                     android:textSize="20dp"
                     />
                 <TextView
@@ -140,7 +159,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
                     android:text="@string/main_dish2_price"
-                    style="@style/MyButton"
                     android:textSize="20dp"
                     />
             </TableRow>
@@ -151,7 +169,6 @@
                     android:layout_weight="0.7"
                     android:layout_gravity="left"
                     android:text="@string/main_dish3_name"
-                    style="@style/MyButton"
                     android:textSize="20dp"
                     />
                 <TextView
@@ -159,7 +176,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
                     android:text="@string/main_dish3_size"
-                    style="@style/MyButton"
                     android:textSize="20dp"
                     />
                 <TextView
@@ -167,7 +183,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
                     android:text="@string/main_dish3_price"
-                    style="@style/MyButton"
                     android:textSize="20dp"
                     />
             </TableRow>

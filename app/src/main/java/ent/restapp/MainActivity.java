@@ -95,17 +95,33 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Set up the user interaction to manually show or hide the system UI.
-        mContentView.setOnClickListener(new View.OnClickListener() {
+//        mContentView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                toggle();
+//            }
+//        });
+        hide();
+//        main_menu_button
+        findViewById(R.id.main_menu_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggle();
+                View main_menu_table = findViewById(R.id.main_menu_table);
+
+                if (main_menu_table.getVisibility() == View.INVISIBLE) {
+                    main_menu_table.setVisibility(View.VISIBLE);
+                } else {
+                    main_menu_table.setVisibility(View.INVISIBLE);
+                }
             }
         });
-
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+//        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+
+
+
     }
 
     @Override
