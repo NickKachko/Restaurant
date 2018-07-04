@@ -108,11 +108,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 View main_menu_table = findViewById(R.id.main_menu_table);
 
-                if (main_menu_table.getVisibility() == View.INVISIBLE) {
-                    main_menu_table.setVisibility(View.VISIBLE);
-                } else {
-                    main_menu_table.setVisibility(View.INVISIBLE);
-                }
+                toggleView(main_menu_table);
+            }
+        });
+
+        findViewById(R.id.sushi_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View main_menu_table = findViewById(R.id.sushi_button);
+
+                toggleView(main_menu_table);
             }
         });
         // Upon interacting with UI controls, delay any scheduled hide()
@@ -132,6 +137,14 @@ public class MainActivity extends AppCompatActivity {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(100);
+    }
+
+    private void toggleView(View toEnable) {
+        if (toEnable.getVisibility() == View.INVISIBLE) {
+            toEnable.setVisibility(View.VISIBLE);
+        } else {
+            toEnable.setVisibility(View.INVISIBLE);
+        }
     }
 
     private void toggle() {

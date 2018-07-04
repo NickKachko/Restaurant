@@ -23,19 +23,14 @@
     <string name="main_dish3_size">300g</string>
     <string name="main_dish3_price">150</string>
 
-    <string-array name="main_dish1">
-        <item>"Pasta"</item>
-        <item>"300g"</item>
-        <item>"120"</item>
-    </string-array>
-    <string-array name="main_dish2">
-        <item>"Bolognese"</item>
-        <item>"250g"</item>
-        <item>"160"</item>
-    </string-array>
-    <string-array name="main_dish3">
-        <item>"Ravioli"</item>
-        <item>"300g"</item>
-        <item>"150"</item>
-    </string-array>
+    <string name="sushi1_name">Maki</string>
+    <string name="sushi1_size">180g</string>
+    <string name="sushi1_price">80</string>
+    <string name="sushi2_name">California</string>
+    <string name="sushi2_size">250g</string>
+    <string name="sushi2_price">120</string>
+    <string name="sushi3_name">Spicy</string>
+    <string name="sushi3_size">200g</string>
+    <string name="sushi3_price">100</string>
+
 </resources>

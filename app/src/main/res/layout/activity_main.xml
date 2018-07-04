@@ -80,16 +80,126 @@
 
         </LinearLayout>
 
-        <TableLayout
-            android:id="@+id/main_menu_table"
+        <FrameLayout
             android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+
+            <TableLayout
+                android:id="@+id/main_menu_table"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black_overlay"
+                android:gravity="center"
+                android:theme="@style/MenuEntryText"
+                android:visibility="invisible"
+                android:paddingStart="30dp">
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:layout_gravity="left"
+                        android:text="@string/dish_name"
+                        android:textSize="20dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.15"
+                        android:text="@string/dish_size"
+                        android:textSize="20dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.15"
+                        android:text="@string/dish_price"
+                        android:textSize="20dp"
+                        />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:layout_gravity="left"
+                        android:text="@string/main_dish1_name"
+                        android:textSize="20dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.15"
+                        android:text="@string/main_dish1_size"
+                        android:textSize="20dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.15"
+                        android:text="@string/main_dish1_price"
+                        android:textSize="20dp"
+                        />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:layout_gravity="left"
+                        android:text="@string/main_dish2_name"
+                        android:textSize="20dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.15"
+                        android:text="@string/main_dish2_size"
+                        android:textSize="20dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.15"
+                        android:text="@string/main_dish2_price"
+                        android:textSize="20dp"
+                        />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:layout_gravity="left"
+                        android:text="@string/main_dish3_name"
+                        android:textSize="20dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.15"
+                        android:text="@string/main_dish3_size"
+                        android:textSize="20dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.15"
+                        android:text="@string/main_dish3_price"
+                        android:textSize="20dp"
+                        />
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+            android:id="@+id/sushi_menu_table"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/black_overlay"
             android:gravity="center"
             android:theme="@style/MenuEntryText"
-            android:visibility="invisible"
-            android:paddingLeft="30dp"
-            android:layout_weight="3">
+            android:paddingStart="30dp">
             <TableRow>
                 <TextView
                     android:layout_width="match_parent"
@@ -120,21 +230,21 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:layout_gravity="left"
-                    android:text="@string/main_dish1_name"
+                    android:text="@string/sushi1_name"
                     android:textSize="20dp"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
-                    android:text="@string/main_dish1_size"
+                    android:text="@string/sushi1_size"
                     android:textSize="20dp"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
-                    android:text="@string/main_dish1_price"
+                    android:text="@string/sushi1_price"
                     android:textSize="20dp"
                     />
             </TableRow>
@@ -144,21 +254,21 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:layout_gravity="left"
-                    android:text="@string/main_dish2_name"
+                    android:text="@string/sushi2_name"
                     android:textSize="20dp"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
-                    android:text="@string/main_dish2_size"
+                    android:text="@string/sushi2_size"
                     android:textSize="20dp"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
-                    android:text="@string/main_dish2_price"
+                    android:text="@string/sushi2_price"
                     android:textSize="20dp"
                     />
             </TableRow>
@@ -168,25 +278,27 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
                     android:layout_gravity="left"
-                    android:text="@string/main_dish3_name"
+                    android:text="@string/sushi3_name"
                     android:textSize="20dp"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
-                    android:text="@string/main_dish3_size"
+                    android:text="@string/sushi3_size"
                     android:textSize="20dp"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
-                    android:text="@string/main_dish3_price"
+                    android:text="@string/sushi3_price"
                     android:textSize="20dp"
                     />
             </TableRow>
         </TableLayout>
+
+        </FrameLayout>
     </LinearLayout>
 
 </FrameLayout>
