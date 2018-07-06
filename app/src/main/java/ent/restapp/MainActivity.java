@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         menuTables = new ArrayList<View>();
         menuTables.add(findViewById(R.id.main_menu_table));
         menuTables.add(findViewById(R.id.sushi_menu_table));
+        menuTables.add(findViewById(R.id.dessert_menu_table));
 
         // Set up the user interaction to manually show or hide the system UI.
 //        mContentView.setOnClickListener(new View.OnClickListener() {
@@ -126,11 +127,21 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.sushi_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                View sushi_menu_table = findViewById(R.id.sushi_button);
+                View sushi_menu_table = findViewById(R.id.sushi_menu_table);
 
                 toggleView(sushi_menu_table);
             }
         });
+
+        findViewById(R.id.dessert_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View dessert_menu_table = findViewById(R.id.dessert_menu_table);
+
+                toggleView(dessert_menu_table);
+            }
+        });
+
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
