@@ -33,7 +33,7 @@
     </style>
 
     <style name="MenuEntryText" parent="android:Widget.TextView">
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">cursive</item>
         <item name="android:textColor">#ffffff</item>
     </style>
