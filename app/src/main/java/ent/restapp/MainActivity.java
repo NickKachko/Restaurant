@@ -95,12 +95,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Set up the user interaction to manually show or hide the system UI.
-//        mContentView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                toggle();
-//            }
-//        });
+        mContentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toggle();
+            }
+        });
         hide();
 //        main_menu_button
         findViewById(R.id.main_menu_button).setOnClickListener(new View.OnClickListener() {
