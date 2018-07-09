@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -179,7 +180,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imageView.setVisibility(View.VISIBLE);
-                imageView.setBackgroundResource(R.drawable.pasta_photo);
             }
         });
 
