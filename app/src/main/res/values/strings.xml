@@ -33,6 +33,19 @@
     <string name="sushi3_size">200g</string>
     <string name="sushi3_price">100</string>
 
+    <string name="pizza1_name">Italiana</string>
+    <string name="pizza1_size">400g/600g/800g</string>
+    <string name="pizza1_price">120/180/220</string>
+    <string name="pizza2_name">Toscana</string>
+    <string name="pizza2_size">400g/600g/800g</string>
+    <string name="pizza2_price">100/140/160</string>
+    <string name="pizza3_name">Hawaian</string>
+    <string name="pizza3_size">400g/600g/800g</string>
+    <string name="pizza3_price">115/135/170</string>
+    <string name="pizza4_name">Pepperoni</string>
+    <string name="pizza4_size">450g/650g/850g</string>
+    <string name="pizza4_price">120/180/220</string>
+
     <string name="dessert1_name">Cheesecake</string>
     <string name="dessert1_size">280g</string>
     <string name="dessert1_price">140</string>

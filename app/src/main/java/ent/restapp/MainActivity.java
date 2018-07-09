@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private View mContentView;
 
     private ArrayList<View> menuTables;
+    private View imageView;
 
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
@@ -99,11 +100,13 @@ public class MainActivity extends AppCompatActivity {
         mContentView = findViewById(R.id.main_layout);
 
 
+        imageView = findViewById(R.id.item_photo);
 
         // Adding all tables to one container
         menuTables = new ArrayList<View>();
         menuTables.add(findViewById(R.id.main_menu_table));
         menuTables.add(findViewById(R.id.sushi_menu_table));
+        menuTables.add(findViewById(R.id.pizza_menu_table));
         menuTables.add(findViewById(R.id.dessert_menu_table));
         menuTables.add(findViewById(R.id.drinks_menu_table));
 
@@ -134,6 +137,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.pizza_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View pizza_menu_table = findViewById(R.id.pizza_menu_table);
+
+                toggleView(pizza_menu_table);
+            }
+        });
+
         findViewById(R.id.dessert_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,6 +161,25 @@ public class MainActivity extends AppCompatActivity {
                 View drinks_menu_table = findViewById(R.id.drinks_menu_table);
 
                 toggleView(drinks_menu_table);
+            }
+        });
+
+
+
+
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageView.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        findViewById(R.id.pasta_row).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageView.setVisibility(View.VISIBLE);
+                imageView.setBackgroundResource(R.drawable.pasta_photo);
             }
         });
 
