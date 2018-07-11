@@ -115,23 +115,30 @@
                         android:text="@string/dish_price"
                         />
                 </TableRow>
-                <TableRow android:id="@+id/pasta_row">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="start|center_vertical"
-                        android:text="@string/main_dish1_name"
-                        android:layout_weight="0.7"
-                        />
+                <TableRow
+                    android:id="@+id/pasta_row">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:text="@string/main_dish1_name"
+                        android:layout_weight="0.55"
+                        />
+                    <Button
+                        android:layout_width="0dp"
+                        android:text="@string/add_button"
+                        android:
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.15"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/main_dish1_size"
                         />
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/main_dish1_price"
                         />
