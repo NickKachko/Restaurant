@@ -116,7 +116,8 @@
                         />
                 </TableRow>
                 <TableRow
-                    android:id="@+id/pasta_row">
+                    android:id="@+id/pasta_row"
+                    android:background="@color/menu_item_table_row_selected_bg_color">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -125,9 +126,8 @@
                         android:layout_weight="0.55"
                         />
                     <Button
+                        style="@style/OrderButton"
                         android:layout_width="0dp"
-                        android:text="@string/add_button"
-                        android:
                         android:layout_height="match_parent"
                         android:layout_weight="0.15"/>
                     <TextView
@@ -147,19 +147,24 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
+                        android:layout_weight="0.55"
                         android:layout_gravity="left"
                         android:text="@string/main_dish2_name"
                         />
+                    <Button
+                        style="@style/OrderButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.15"/>
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/main_dish2_size"
                         />
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/main_dish2_price"
                         />
@@ -168,19 +173,24 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
+                        android:layout_weight="0.55"
                         android:layout_gravity="left"
                         android:text="@string/main_dish3_name"
                         />
+                    <Button
+                        style="@style/OrderButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.15"/>
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/main_dish3_size"
                         />
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/main_dish3_price"
                         />
@@ -597,6 +607,12 @@
                 android:padding="80dp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/pasta_photo"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                style="@style/TotalButton"/>
 
         </FrameLayout>
     </LinearLayout>

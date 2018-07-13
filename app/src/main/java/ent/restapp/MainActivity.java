@@ -176,6 +176,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.main_menu_table).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // https://stackoverflow.com/questions/25905086/multiple-buttons-onclicklistener-android
+            }
+        });
+
+
+
+
+
+
         findViewById(R.id.pasta_row).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
