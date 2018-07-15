@@ -1,21 +1,31 @@
 package ent.restapp;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -37,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
     private View mContentView;
 
     private ArrayList<View> menuTables;
+    // Key - dish name, value - pair of (price, count)
+    private HashMap<String, Pair<Integer, Integer>> ordersMap;
+    private Integer totalPrice = 0;
     private View imageView;
 
     private final Runnable mHidePart2Runnable = new Runnable() {
@@ -104,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.item_photo);
 
         // Adding all tables to one container
+        ordersMap = new HashMap<String, Pair<Integer, Integer>>();
         menuTables = new ArrayList<View>();
         menuTables.add(findViewById(R.id.main_menu_table));
         menuTables.add(findViewById(R.id.sushi_menu_table));
@@ -176,24 +190,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.main_menu_table).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // https://stackoverflow.com/questions/25905086/multiple-buttons-onclicklistener-android
-            }
-        });
+
+        // Main linkage of views to click listener is here
+//        findViewById(R.id.main_menu_table).setOnClickListener(this);
+        findViewById(R.id.main_meals_row1).setOnClickListener(this);
+        findViewById(R.id.main_meals_row2).setOnClickListener(this);
+        findViewById(R.id.main_meals_row3).setOnClickListener(this);
+        findViewById(R.id.main_meals_order1).setOnClickListener(this);
+        findViewById(R.id.main_meals_order2).setOnClickListener(this);
+        findViewById(R.id.main_meals_order3).setOnClickListener(this);
 
 
 
 
 
 
-        findViewById(R.id.pasta_row).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imageView.setVisibility(View.VISIBLE);
-            }
-        });
+//        findViewById(R.id.pasta_row).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                imageView.setVisibility(View.VISIBLE);
+//            }
+//        });
 
 //        findViewById(R.id.dessert_button).setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -211,6 +228,74 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public void onClick(View in) {
+        View totalButton = findViewById(R.id.total_button);
+        if (in instanceof Button) {
+            if (in.getParent() instanceof TableRow) {
+                handleOrderClick((Button) in);
+            }
+        }
+        if (in instanceof TableRow) {
+            handleTableRowClick((TableRow) in);
+        }
+        if (in instanceof TableLayout) {
+            totalButton.setTooltipText("Clicked on the table layout");
+        }
+
+    }
+
+    private void handleOrderClick(Button in) {
+        View tableRow = (TableRow) in.getParent();
+        String dishName = ((TextView)((TableRow)tableRow).getChildAt(0)).getText().toString();
+        Integer dishPrice = Integer.parseInt(((TextView)((TableRow)tableRow).getChildAt(3)).getText().toString());
+        Integer dishCount = 1;
+
+        if (dishPrice == 0) return;
+
+        Pair<Integer, Integer> entry = ordersMap.get(dishName);
+
+        if (entry != null) {
+            dishCount = entry.second + 1;
+        }
+
+        ordersMap.put(dishName, Pair.create(dishPrice, dishCount));
+
+        reCalculateTotalPrice();
+
+        ((Button) findViewById(R.id.total_button)).setText(getString(R.string.order_button) + ": " + totalPrice);
+    }
+
+    private void handleTableRowClick(TableRow in) {
+        int selColor = getColor(R.color.menu_item_table_row_selected_bg_color);
+        int unselColor = getColor(R.color.menu_item_table_row_unselected_bg_color);
+        Drawable background = in.getBackground();
+        if (background == null) {
+            in.setBackgroundColor(selColor);
+        } else if (background instanceof ColorDrawable) {
+            if (((ColorDrawable) background).getColor() == selColor) {
+                in.setBackgroundColor(unselColor);
+            } else {
+                in.setBackgroundColor(selColor);
+            }
+        }
+        View orderButton = in.getChildAt(1);
+        if (orderButton instanceof Button) {
+            if (orderButton.getVisibility() == View.INVISIBLE) {
+                orderButton.setVisibility(View.VISIBLE);
+            } else {
+                orderButton.setVisibility(View.INVISIBLE);
+            }
+        }
+    }
+
+    private void reCalculateTotalPrice() {
+        totalPrice = 0;
+        for (Map.Entry<String, Pair<Integer, Integer>> entry : ordersMap.entrySet()) {
+            totalPrice += entry.getValue().first * entry.getValue().second;
+        }
     }
 
     @Override

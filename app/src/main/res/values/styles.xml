@@ -39,6 +39,7 @@
         <item name="android:textColor">#000000</item>
         <item name="android:layout_margin">0dip</item>
         <item name="android:background">@color/order_button_bg_color</item>
+        <item name="android:visibility">invisible</item>
     </style>
 
     <style name="TotalButton" parent="android:style/Widget.Button">

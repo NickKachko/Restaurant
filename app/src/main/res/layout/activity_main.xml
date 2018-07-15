@@ -116,8 +116,8 @@
                         />
                 </TableRow>
                 <TableRow
-                    android:id="@+id/pasta_row"
-                    android:background="@color/menu_item_table_row_selected_bg_color">
+                    android:id="@+id/main_meals_row1"
+                    android:background="@color/menu_item_table_row_unselected_bg_color">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -126,6 +126,7 @@
                         android:layout_weight="0.55"
                         />
                     <Button
+                        android:id="@+id/main_meals_order1"
                         style="@style/OrderButton"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -143,7 +144,8 @@
                         android:text="@string/main_dish1_price"
                         />
                 </TableRow>
-                <TableRow>
+                <TableRow
+                    android:id="@+id/main_meals_row2">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -152,6 +154,7 @@
                         android:text="@string/main_dish2_name"
                         />
                     <Button
+                        android:id="@+id/main_meals_order2"
                         style="@style/OrderButton"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -169,7 +172,8 @@
                         android:text="@string/main_dish2_price"
                         />
                 </TableRow>
-                <TableRow>
+                <TableRow
+                    android:id="@+id/main_meals_row3">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -178,6 +182,7 @@
                         android:text="@string/main_dish3_name"
                         />
                     <Button
+                        android:id="@+id/main_meals_order3"
                         style="@style/OrderButton"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -609,6 +614,7 @@
                 android:src="@drawable/pasta_photo"/>
 
             <Button
+                android:id="@+id/total_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
