@@ -1,7 +1,9 @@
 package ent.restapp;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
@@ -179,6 +181,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        findViewById(R.id.total_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TableLayout checkoutTable = findViewById(R.id.checkout_table);
+                TableRow rowToInsert;
+                TextView textToInsert;
+                hideAllTables();
+
+                for (Map.Entry<String, Pair<Integer, Integer>> entry : ordersMap.entrySet()) {
+                    rowToInsert = new TableRow(MainActivity.this);
+                    rowToInsert.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, (float) 0.5));
+
+                    textToInsert = new TextView(MainActivity.this);
+                    textToInsert.setText(entry.getKey().toString());
+                    rowToInsert.addView(textToInsert);
+
+                    textToInsert = new TextView(MainActivity.this);
+                    textToInsert.setText(entry.getValue().first);
+                    rowToInsert.addView(textToInsert);
+                    textToInsert = new TextView(MainActivity.this);
+                    textToInsert.setText(entry.getValue().second);
+                    rowToInsert.addView(textToInsert);
+                    textToInsert = new TextView(MainActivity.this);
+                    textToInsert.setText((entry.getValue().first * entry.getValue().second));
+                    rowToInsert.addView(textToInsert);
+                }
+
+                checkoutTable.setVisibility(View.VISIBLE);
+            }
+        });
+
 
 
 
@@ -242,7 +275,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             handleTableRowClick((TableRow) in);
         }
         if (in instanceof TableLayout) {
-            totalButton.setTooltipText("Clicked on the table layout");
+//            totalButton.setTooltipText("Clicked on the table layout");
         }
 
     }
@@ -265,36 +298,57 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         reCalculateTotalPrice();
 
-        ((Button) findViewById(R.id.total_button)).setText(getString(R.string.order_button) + ": " + totalPrice);
+        refreshCheckoutButton();
     }
 
     private void handleTableRowClick(TableRow in) {
         int selColor = getColor(R.color.menu_item_table_row_selected_bg_color);
         int unselColor = getColor(R.color.menu_item_table_row_unselected_bg_color);
+        boolean shouldShow = false;
+
         Drawable background = in.getBackground();
         if (background == null) {
-            in.setBackgroundColor(selColor);
+            shouldShow = true;
         } else if (background instanceof ColorDrawable) {
             if (((ColorDrawable) background).getColor() == selColor) {
-                in.setBackgroundColor(unselColor);
+                shouldShow = false;
             } else {
-                in.setBackgroundColor(selColor);
+                shouldShow = true;
             }
         }
-        View orderButton = in.getChildAt(1);
-        if (orderButton instanceof Button) {
-            if (orderButton.getVisibility() == View.INVISIBLE) {
+
+        View parentTable = (View) in.getParent();
+        if (parentTable instanceof TableLayout) {
+            hideAllTableRows((TableLayout) parentTable, unselColor);
+        } else {
+            return;
+        }
+
+        if (shouldShow) {
+            View orderButton = in.getChildAt(1);
+            if (orderButton instanceof Button) {
                 orderButton.setVisibility(View.VISIBLE);
-            } else {
-                orderButton.setVisibility(View.INVISIBLE);
             }
+            in.setBackgroundColor(selColor);
         }
+
     }
 
     private void reCalculateTotalPrice() {
         totalPrice = 0;
         for (Map.Entry<String, Pair<Integer, Integer>> entry : ordersMap.entrySet()) {
             totalPrice += entry.getValue().first * entry.getValue().second;
+        }
+    }
+
+    private void refreshCheckoutButton() {
+        Button checkoutButton = (Button) findViewById(R.id.total_button);
+        if (totalPrice != 0) {
+            checkoutButton.setText(getString(R.string.order_button) + ": " + totalPrice);
+            checkoutButton.setVisibility(View.VISIBLE);
+        } else {
+            checkoutButton.setText(getString(R.string.order_button));
+            checkoutButton.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -321,6 +375,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void hideAllTables() {
         for (int i = 0; i < menuTables.size(); i++) {
             menuTables.get(i).setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void hideAllTableRows(TableLayout parent, int colorToFill) {
+        int childCount = parent.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            TableRow child = (TableRow) parent.getChildAt(i);
+            child.setBackgroundColor(colorToFill);
+
+            View orderButton = child.getChildAt(1);
+            if (orderButton instanceof Button) {
+                orderButton.setVisibility(View.INVISIBLE);
+            }
         }
     }
 
