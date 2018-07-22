@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -126,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menuTables.add(findViewById(R.id.pizza_menu_table));
         menuTables.add(findViewById(R.id.dessert_menu_table));
         menuTables.add(findViewById(R.id.drinks_menu_table));
+        menuTables.add(findViewById(R.id.checkout_table));
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
@@ -181,36 +183,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        findViewById(R.id.total_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                TableLayout checkoutTable = findViewById(R.id.checkout_table);
-                TableRow rowToInsert;
-                TextView textToInsert;
-                hideAllTables();
-
-                for (Map.Entry<String, Pair<Integer, Integer>> entry : ordersMap.entrySet()) {
-                    rowToInsert = new TableRow(MainActivity.this);
-                    rowToInsert.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, (float) 0.5));
-
-                    textToInsert = new TextView(MainActivity.this);
-                    textToInsert.setText(entry.getKey().toString());
-                    rowToInsert.addView(textToInsert);
-
-                    textToInsert = new TextView(MainActivity.this);
-                    textToInsert.setText(entry.getValue().first);
-                    rowToInsert.addView(textToInsert);
-                    textToInsert = new TextView(MainActivity.this);
-                    textToInsert.setText(entry.getValue().second);
-                    rowToInsert.addView(textToInsert);
-                    textToInsert = new TextView(MainActivity.this);
-                    textToInsert.setText((entry.getValue().first * entry.getValue().second));
-                    rowToInsert.addView(textToInsert);
-                }
-
-                checkoutTable.setVisibility(View.VISIBLE);
-            }
-        });
 
 
 
@@ -232,27 +204,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.main_meals_order1).setOnClickListener(this);
         findViewById(R.id.main_meals_order2).setOnClickListener(this);
         findViewById(R.id.main_meals_order3).setOnClickListener(this);
+        findViewById(R.id.total_button).setOnClickListener(this);
 
 
 
 
 
-
-//        findViewById(R.id.pasta_row).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                imageView.setVisibility(View.VISIBLE);
-//            }
-//        });
-
-//        findViewById(R.id.dessert_button).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                View dessert_menu_table = findViewById(R.id.dessert_menu_table);
-//
-//                toggleView(dessert_menu_table);
-//            }
-//        });
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
@@ -270,9 +227,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (in.getParent() instanceof TableRow) {
                 handleOrderClick((Button) in);
             }
+            else if (in == totalButton) {
+                handleTotalButtonClick();
+            }
         }
         if (in instanceof TableRow) {
-            handleTableRowClick((TableRow) in);
+            if (in.getParent() == findViewById(R.id.checkout_table)) {
+                handleCheckoutTableRowClick((TableRow) in);
+            } else {
+                handleTableRowClick((TableRow) in);
+            }
         }
         if (in instanceof TableLayout) {
 //            totalButton.setTooltipText("Clicked on the table layout");
@@ -332,6 +296,72 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             in.setBackgroundColor(selColor);
         }
 
+    }
+
+    private void handleCheckoutTableRowClick(TableRow in) {
+        View firstElement = in.getChildAt(0);
+        if (!(firstElement instanceof TextView)) {
+            return;
+        }
+
+        String menuName = ((TextView)firstElement).getText().toString();
+        ordersMap.remove(menuName);
+        reCalculateTotalPrice();
+        refreshCheckoutButton();
+        clearCheckoutTable();
+        if (totalPrice != 0) {
+            populateCheckoutTable();
+        } else {
+            hideAllTables();
+        }
+    }
+
+    private void handleTotalButtonClick() {
+        hideAllTables();
+        clearCheckoutTable();
+        populateCheckoutTable();
+    }
+
+    private void clearCheckoutTable() {
+        TableLayout checkoutTable = findViewById(R.id.checkout_table);
+        int childCount = checkoutTable.getChildCount();
+
+            checkoutTable.removeViews(1, childCount - 1);
+    }
+
+    private void populateCheckoutTable() {
+        TableLayout checkoutTable = findViewById(R.id.checkout_table);
+        TableRow rowToInsert;
+        TextView textToInsert;
+
+        for (Map.Entry<String, Pair<Integer, Integer>> entry : ordersMap.entrySet()) {
+            rowToInsert = new TableRow(MainActivity.this);
+//                    rowToInsert.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, (float) 0.5));
+
+            textToInsert = new TextView(MainActivity.this);
+            textToInsert.setText(entry.getKey().toString());
+            textToInsert.setTextAppearance(R.style.MenuEntryText);
+            rowToInsert.addView(textToInsert, new TableRow.LayoutParams(0, TableLayout.LayoutParams.WRAP_CONTENT, (float) 0.5));
+
+            textToInsert = new TextView(MainActivity.this);
+            textToInsert.setText(entry.getValue().first.toString());
+            textToInsert.setTextAppearance(R.style.MenuEntryText);
+            rowToInsert.addView(textToInsert, new TableRow.LayoutParams(0, TableLayout.LayoutParams.WRAP_CONTENT, (float) 0.2));
+            textToInsert = new TextView(MainActivity.this);
+            textToInsert.setText(entry.getValue().second.toString());
+            textToInsert.setTextAppearance(R.style.MenuEntryText);
+            rowToInsert.addView(textToInsert, new TableRow.LayoutParams(0, TableLayout.LayoutParams.WRAP_CONTENT, (float) 0.15));
+            textToInsert = new TextView(MainActivity.this);
+            textToInsert.setText(((Integer)(entry.getValue().first * entry.getValue().second)).toString());
+            textToInsert.setTextAppearance(R.style.MenuEntryText);
+            rowToInsert.addView(textToInsert, new TableRow.LayoutParams(0, TableLayout.LayoutParams.WRAP_CONTENT, (float) 0.15));
+
+            rowToInsert.setVisibility(View.VISIBLE);
+            rowToInsert.setOnClickListener(this);
+            checkoutTable.addView(rowToInsert);
+        }
+
+        checkoutTable.setVisibility(View.VISIBLE);
     }
 
     private void reCalculateTotalPrice() {

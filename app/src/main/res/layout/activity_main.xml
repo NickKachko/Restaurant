@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main_layout"
+    android:screenOrientation="sensorLandscape"
     tools:context=".MainActivity">
 
     <ImageView
@@ -618,7 +619,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/black_overlay"
-                android:visibility="visible"
+                android:visibility="invisible"
                 android:gravity="center"
                 android:theme="@style/MenuEntryText"
                 android:paddingStart="30dp">
@@ -634,13 +635,13 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.20"
-                        android:text="@string/dish_quantity"
+                        android:text="@string/dish_price"
                         />
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.15"
-                        android:text="@string/dish_price"
+                        android:text="@string/dish_quantity"
                         />
                     <TextView
                         android:layout_width="0dp"
