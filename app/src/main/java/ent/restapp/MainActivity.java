@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -136,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 toggle();
             }
         });
-        hide();
+//        hide();
 //        main_menu_button
         findViewById(R.id.main_menu_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,6 +185,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        findViewById(R.id.video_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View video_view = findViewById(R.id.video_view);
+                VideoView v = (VideoView) video_view;
+                Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
+                v.setVideoURI(uri);
+                v.start();
+
+                toggleView(video_view);
+            }
+        });
+
 
 
 
@@ -198,13 +213,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Main linkage of views to click listener is here
 //        findViewById(R.id.main_menu_table).setOnClickListener(this);
-        findViewById(R.id.main_meals_row1).setOnClickListener(this);
-        findViewById(R.id.main_meals_row2).setOnClickListener(this);
-        findViewById(R.id.main_meals_row3).setOnClickListener(this);
-        findViewById(R.id.main_meals_order1).setOnClickListener(this);
-        findViewById(R.id.main_meals_order2).setOnClickListener(this);
-        findViewById(R.id.main_meals_order3).setOnClickListener(this);
+//        findViewById(R.id.main_meals_row1).setOnClickListener(this);
+//        findViewById(R.id.main_meals_row2).setOnClickListener(this);
+//        findViewById(R.id.main_meals_row3).setOnClickListener(this);
+//        findViewById(R.id.sushi_row1).setOnClickListener(this);
+//        findViewById(R.id.sushi_row2).setOnClickListener(this);
+//        findViewById(R.id.sushi_row3).setOnClickListener(this);
+
+//        findViewById(R.id.main_meals_order1).setOnClickListener(this);
+//        findViewById(R.id.main_meals_order2).setOnClickListener(this);
+//        findViewById(R.id.main_meals_order3).setOnClickListener(this);
         findViewById(R.id.total_button).setOnClickListener(this);
+
+        for (int i = 0; i < menuTables.size(); i++) {
+            TableLayout in = (TableLayout) menuTables.get(i);
+            for (int j = 1; j < in.getChildCount(); j++) {
+                in.getChildAt(j).setOnClickListener(this);
+                View b = ((TableRow)in.getChildAt(j)).getChildAt(1);
+                if (b instanceof Button) {
+                    b.setOnClickListener(this);
+                }
+            }
+        }
 
 
 
@@ -245,24 +275,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void handleOrderClick(Button in) {
-        View tableRow = (TableRow) in.getParent();
-        String dishName = ((TextView)((TableRow)tableRow).getChildAt(0)).getText().toString();
-        Integer dishPrice = Integer.parseInt(((TextView)((TableRow)tableRow).getChildAt(3)).getText().toString());
-        Integer dishCount = 1;
+            View tableRow = (TableRow) in.getParent();
+            String dishName = ((TextView) ((TableRow) tableRow).getChildAt(0)).getText().toString();
+            Integer dishPrice = 0;
+            try {
+                dishPrice = Integer.parseInt(((TextView) ((TableRow) tableRow).getChildAt(3)).getText().toString());
+            } catch (Exception ex) {
+                dishPrice = 120;
+            }
 
-        if (dishPrice == 0) return;
+            Integer dishCount = 1;
 
-        Pair<Integer, Integer> entry = ordersMap.get(dishName);
+            if (dishPrice == 0) return;
 
-        if (entry != null) {
-            dishCount = entry.second + 1;
-        }
+            Pair<Integer, Integer> entry = ordersMap.get(dishName);
 
-        ordersMap.put(dishName, Pair.create(dishPrice, dishCount));
+            if (entry != null) {
+                dishCount = entry.second + 1;
+            }
 
-        reCalculateTotalPrice();
+            ordersMap.put(dishName, Pair.create(dishPrice, dishCount));
 
-        refreshCheckoutButton();
+            reCalculateTotalPrice();
+
+            refreshCheckoutButton();
     }
 
     private void handleTableRowClick(TableRow in) {

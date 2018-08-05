@@ -6,6 +6,7 @@
     <string name="pizza_button">Pizza</string>
     <string name="dessert_button">Dessert</string>
     <string name="drinks_button">Drinks</string>
+    <string name="video_button_str">Kitchen</string>
 
     <string name="order_button">Order</string>
     <string name="total_button">Checkout</string>

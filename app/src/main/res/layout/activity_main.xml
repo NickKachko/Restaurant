@@ -79,6 +79,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/drinks_button"/>
 
+            <Button
+                android:id="@+id/video_button"
+                style="@style/MyButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/video_button_str"/>
+
         </LinearLayout>
 
         <FrameLayout
@@ -214,84 +221,102 @@
             android:paddingStart="30dp">
             <TableRow>
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7"
-                    android:layout_gravity="left"
                     android:text="@string/dish_name"
                     />
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
                     android:text="@string/dish_size"
                     />
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.15"
                     android:text="@string/dish_price"
                     />
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:id="@+id/sushi_row1"
+                android:weightSum="1">
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.7"
-                    android:layout_gravity="left"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_weight="0.55"
                     android:text="@string/sushi1_name"
                     />
+                <Button
+                    style="@style/OrderButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.15"/>
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="0.15"
                     android:text="@string/sushi1_size"
                     />
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="0.15"
                     android:text="@string/sushi1_price"
                     />
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:id="@+id/sushi_row2">
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.7"
-                    android:layout_gravity="left"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_weight="0.55"
                     android:text="@string/sushi2_name"
                     />
+                <Button
+                    style="@style/OrderButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.15"/>
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="0.15"
                     android:text="@string/sushi2_size"
                     />
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="0.15"
                     android:text="@string/sushi2_price"
                     />
             </TableRow>
-            <TableRow>
+            <TableRow
+                android:id="@+id/sushi_row3">
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.7"
-                    android:layout_gravity="left"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_weight="0.55"
                     android:text="@string/sushi3_name"
                     />
+                <Button
+                    style="@style/OrderButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.15"/>
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="0.15"
                     android:text="@string/sushi3_size"
                     />
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="0.15"
                     android:text="@string/sushi3_price"
                     />
@@ -309,85 +334,102 @@
                 android:paddingStart="30dp">
                 <TableRow>
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
-                        android:layout_gravity="left"
+                        android:layout_weight="0.3"
                         android:text="@string/dish_name"
                         />
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.15"
+                        android:layout_weight="0.4"
                         android:text="@string/dish_size"
                         />
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.15"
+                        android:layout_weight="0.3"
                         android:text="@string/dish_price"
                         />
                 </TableRow>
-                <TableRow>
+                <TableRow
+                    android:id="@+id/pizza_row1">
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
-                        android:layout_gravity="left"
+                        android:layout_gravity="start|center_vertical"
+                        android:layout_weight="0.2"
                         android:text="@string/pizza1_name"
                         />
+                    <Button
+                        style="@style/OrderButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.15"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
                         android:text="@string/pizza1_size"
                         />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.15"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
                         android:text="@string/pizza1_price"
                         />
                 </TableRow>
-                <TableRow>
+                <TableRow
+                    android:id="@+id/pizza_row2">
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
-                        android:layout_gravity="left"
+                        android:layout_weight="0.2"
+                        android:layout_gravity="start|center_vertical"
                         android:text="@string/pizza2_name"
                         />
+                    <Button
+                        style="@style/OrderButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.15"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
                         android:text="@string/pizza2_size"
                         />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.15"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
                         android:text="@string/pizza2_price"
                         />
                 </TableRow>
-                <TableRow>
+                <TableRow
+                    android:id="@+id/pizza_row3">
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
-                        android:layout_gravity="left"
+                        android:layout_weight="0.2"
+                        android:layout_gravity="start|center_vertical"
                         android:text="@string/pizza3_name"
                         />
+                    <Button
+                        style="@style/OrderButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.15"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
                         android:text="@string/pizza3_size"
                         />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.15"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
                         android:text="@string/pizza3_price"
                         />
                 </TableRow>
@@ -404,84 +446,102 @@
                 android:paddingStart="30dp">
                 <TableRow>
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.7"
                         android:layout_gravity="left"
                         android:text="@string/dish_name"
                         />
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.15"
                         android:text="@string/dish_size"
                         />
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.15"
                         android:text="@string/dish_price"
                         />
                 </TableRow>
-                <TableRow>
+                <TableRow
+                    android:id="@+id/dessert_row1">
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
-                        android:layout_gravity="left"
+                        android:layout_weight="0.55"
+                        android:layout_gravity="start|center_vertical"
                         android:text="@string/dessert1_name"
                         />
+                    <Button
+                        style="@style/OrderButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.15"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/dessert1_size"
                         />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/dessert1_price"
                         />
                 </TableRow>
-                <TableRow>
+                <TableRow
+                    android:id="@+id/dessert_row2">
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
-                        android:layout_gravity="left"
+                        android:layout_weight="0.55"
+                        android:layout_gravity="start|center_vertical"
                         android:text="@string/dessert2_name"
                         />
+                    <Button
+                        style="@style/OrderButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.15"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/dessert2_size"
                         />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/dessert2_price"
                         />
                 </TableRow>
-                <TableRow>
+                <TableRow
+                    android:id="@+id/dessert_row3">
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
-                        android:layout_gravity="left"
+                        android:layout_weight="0.55"
+                        android:layout_gravity="start|center_vertical"
                         android:text="@string/dessert3_name"
                         />
+                    <Button
+                        style="@style/OrderButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.15"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/dessert3_size"
                         />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/dessert3_price"
                         />
@@ -523,7 +583,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.7"
-                        android:layout_gravity="left"
+                        android:layout_gravity="start|center_vertical"
                         android:text="@string/drinks1_name"
                         />
                     <TextView
@@ -544,7 +604,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.7"
-                        android:layout_gravity="left"
+                        android:layout_gravity="start|center_vertical"
                         android:text="@string/drinks2_name"
                         />
                     <TextView
@@ -565,7 +625,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.7"
-                        android:layout_gravity="left"
+                        android:layout_gravity="start|center_vertical"
                         android:text="@string/drinks3_name"
                         />
                     <TextView
@@ -586,7 +646,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.7"
-                        android:layout_gravity="left"
+                        android:layout_gravity="start|center_vertical"
                         android:text="@string/drinks4_name"
                         />
                     <TextView
@@ -603,6 +663,11 @@
                         />
                 </TableRow>
             </TableLayout>
+
+            <VideoView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/video_view"/>
 
             <ImageView
                 android:id="@+id/item_photo"
