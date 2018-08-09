@@ -130,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menuTables.add(findViewById(R.id.dessert_menu_table));
         menuTables.add(findViewById(R.id.drinks_menu_table));
         menuTables.add(findViewById(R.id.checkout_table));
+        menuTables.add(findViewById(R.id.video_view));
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
@@ -226,12 +227,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.total_button).setOnClickListener(this);
 
         for (int i = 0; i < menuTables.size(); i++) {
-            TableLayout in = (TableLayout) menuTables.get(i);
-            for (int j = 1; j < in.getChildCount(); j++) {
-                in.getChildAt(j).setOnClickListener(this);
-                View b = ((TableRow)in.getChildAt(j)).getChildAt(1);
-                if (b instanceof Button) {
-                    b.setOnClickListener(this);
+            if (menuTables.get(i) instanceof TableLayout) {
+                TableLayout in = (TableLayout) menuTables.get(i);
+                for (int j = 1; j < in.getChildCount(); j++) {
+                    in.getChildAt(j).setOnClickListener(this);
+                    View b = ((TableRow) in.getChildAt(j)).getChildAt(1);
+                    if (b instanceof Button) {
+                        b.setOnClickListener(this);
+                    }
                 }
             }
         }
