@@ -553,111 +553,130 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/black_overlay"
-                android:visibility="invisible"
+                android:visibility="visible"
                 android:gravity="center"
                 android:theme="@style/MenuEntryText"
                 android:paddingStart="30dp">
                 <TableRow>
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.7"
-                        android:layout_gravity="left"
                         android:text="@string/dish_name"
                         />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/dish_size"
                         />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/dish_price"
                         />
                 </TableRow>
                 <TableRow>
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
+                        android:layout_weight="0.55"
                         android:layout_gravity="start|center_vertical"
                         android:text="@string/drinks1_name"
                         />
+                    <Button
+                        style="@style/OrderButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.15"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/drinks1_size"
                         />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/drinks1_price"
                         />
                 </TableRow>
                 <TableRow>
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
+                        android:layout_weight="0.55"
                         android:layout_gravity="start|center_vertical"
                         android:text="@string/drinks2_name"
                         />
+                    <Button
+                        style="@style/OrderButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.15"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/drinks2_size"
                         />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/drinks2_price"
                         />
                 </TableRow>
                 <TableRow>
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
+                        android:layout_weight="0.55"
                         android:layout_gravity="start|center_vertical"
                         android:text="@string/drinks3_name"
                         />
+                    <Button
+                        style="@style/OrderButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.15"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/drinks3_size"
                         />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/drinks3_price"
                         />
                 </TableRow>
                 <TableRow>
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
+                        android:layout_weight="0.55"
                         android:layout_gravity="start|center_vertical"
                         android:text="@string/drinks4_name"
                         />
+                    <Button
+                        style="@style/OrderButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.15"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/drinks4_size"
                         />
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="0.15"
                         android:text="@string/drinks4_price"
                         />
@@ -668,6 +687,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="invisible"
+                android:layout_gravity="center"
                 android:id="@+id/video_view"/>
 
             <ImageView
