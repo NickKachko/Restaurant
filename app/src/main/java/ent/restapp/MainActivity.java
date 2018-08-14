@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TableLayout;
@@ -79,10 +80,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void run() {
             // Delayed display of UI elements
-            ActionBar actionBar = getSupportActionBar();
-            if (actionBar != null) {
-                actionBar.show();
-            }
+//            ActionBar actionBar = getSupportActionBar();
+//            if (actionBar != null) {
+//                actionBar.show();
+//            }
             mControlsView.setVisibility(View.VISIBLE);
         }
     };
@@ -111,6 +112,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
 
@@ -356,9 +359,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void handleTotalButtonClick() {
-        hideAllTables();
-        clearCheckoutTable();
-        populateCheckoutTable();
+        if (findViewById(R.id.checkout_table).getVisibility() == View.VISIBLE) {
+            clearCheckoutTable();
+            ordersMap.clear();
+            reCalculateTotalPrice();
+            refreshCheckoutButton();
+        } else {
+            hideAllTables();
+            clearCheckoutTable();
+            populateCheckoutTable();
+        }
     }
 
     private void clearCheckoutTable() {
