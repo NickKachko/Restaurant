@@ -423,10 +423,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void refreshCheckoutButton() {
         Button checkoutButton = (Button) findViewById(R.id.total_button);
         if (totalPrice != 0) {
-            checkoutButton.setText(getString(R.string.order_button) + ": " + totalPrice);
+            checkoutButton.setText(getString(R.string.total_button) + ": " + totalPrice);
             checkoutButton.setVisibility(View.VISIBLE);
         } else {
-            checkoutButton.setText(getString(R.string.order_button));
+            checkoutButton.setText(getString(R.string.total_button));
             checkoutButton.setVisibility(View.INVISIBLE);
         }
     }
