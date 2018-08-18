@@ -359,14 +359,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void handleTotalButtonClick() {
+        clearCheckoutTable();
         if (findViewById(R.id.checkout_table).getVisibility() == View.VISIBLE) {
-            clearCheckoutTable();
+            hideAllTables();
             ordersMap.clear();
             reCalculateTotalPrice();
             refreshCheckoutButton();
         } else {
             hideAllTables();
-            clearCheckoutTable();
             populateCheckoutTable();
         }
     }

@@ -1,0 +1,9 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+android:color="@color/menu_item_table_row_unselected_bg_color">
+  <item>
+    <shape xmlns:android="http://schemas.android.com/apk/res/android">
+        <corners android:radius="10dp" />
+        <solid android:color="@color/order_button_bg_color" />
+    </shape>
+  </item>
+</ripple>
