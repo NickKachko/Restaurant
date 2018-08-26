@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     };
     private boolean mVisible;
+    private boolean isAllowedToHide = true;
     private final Runnable mHideRunnable = new Runnable() {
         @Override
         public void run() {
@@ -196,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View view) {
                 View video_view = findViewById(R.id.video_view);
                 VideoView v = (VideoView) video_view;
-                Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
+                Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid4);
                 v.setVideoURI(uri);
                 v.start();
 
@@ -445,6 +446,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void toggleView(View toEnable) {
         boolean shouldShow = (toEnable.getVisibility() == View.INVISIBLE);
+        isAllowedToHide = !shouldShow;
 
         hideAllTables();
 
@@ -473,10 +475,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void toggle() {
-        if (mVisible) {
-            hide();
-        } else {
-            show();
+        if (isAllowedToHide) {
+            if (mVisible) {
+                hide();
+            } else {
+                show();
+            }
         }
     }
 
